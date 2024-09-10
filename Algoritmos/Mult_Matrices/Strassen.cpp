@@ -28,13 +28,13 @@ vector<vector<int>> multiply_matrix_Strassen(vector<vector<int>> matrix_A, vecto
         result_matrix[0][0] = matrix_A[0][0] * matrix_B[0][0];
     else {
         int split_index = col_1 / 2;
- 
+        // Dividir matrices
         vector<int> row_vector(split_index, 0);
         vector<vector<int> > result_matrix_00(split_index, row_vector);
         vector<vector<int> > result_matrix_01(split_index, row_vector);
         vector<vector<int> > result_matrix_10(split_index, row_vector);
         vector<vector<int> > result_matrix_11(split_index, row_vector);
- 
+        //Encontrar valores para calcular
         vector<vector<int>> a00(split_index, row_vector);
         vector<vector<int>> a01(split_index, row_vector);
         vector<vector<int>> a10(split_index, row_vector);

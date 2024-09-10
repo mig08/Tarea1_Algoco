@@ -10,6 +10,13 @@
 using namespace std::chrono;
 using namespace std;
 
+void add_matrix(vector<vector<int> > matrix_A, vector<vector<int> > matrix_B, vector<vector<int> >& matrix_C, int split_index) { // https://www.geeksforgeeks.org/strassens-matrix-multiplication/
+    for (auto i = 0; i < split_index; i++)
+        for (auto j = 0; j < split_index; j++)
+            matrix_C[i][j] = matrix_A[i][j] + matrix_B[i][j];
+}
+
+
 vector<vector<int>> multiply_matrix_Strassen(vector<vector<int>> matrix_A, vector<vector<int>> matrix_B) { // https://www.geeksforgeeks.org/strassens-matrix-multiplication/
     int col_1 = matrix_A[0].size();
     int row_1 = matrix_A.size();

@@ -13,7 +13,6 @@ void RandomDataSet(vector<int>& vector, int numElements) {
 
     string Dataset = "Random_dataset.txt";
 
-    // Inicializar la semilla para generar números aleatorios
     srand(static_cast<unsigned int>(time(0)));
 
     // Crear y abrir el archivo
@@ -41,21 +40,16 @@ void RandomDataSet(vector<int>& vector, int numElements) {
 
 void selectionSort(vector<int> &v, int n) // https://www.geeksforgeeks.org/selection-sort-algorithm-2/
 {
-    // One by one move boundary of
-    // unsorted subarray
     for (int i = 0; i < n - 1; i++)
     {
-        // Find the minimum element in
-        // unsorted array
-        int min_idx = i;
+        // Encontrar minimo en vector
         for (int j = i + 1; j < n; j++)
         {
             if (v[j] < v[min_idx])
                 min_idx = j;
         }
 
-        // Swap the found minimum element
-        // with the first element
+        // Hacer swap del minimo con el primer elemento
         if (min_idx != i)
             swap(v[min_idx], v[i]);
     }

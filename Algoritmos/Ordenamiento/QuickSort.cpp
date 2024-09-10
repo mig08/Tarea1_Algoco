@@ -13,7 +13,6 @@ void RandomDataSet(vector<int>& vector, int numElements) {
 
     string Dataset = "Random_dataset.txt";
 
-    // Inicializar la semilla para generar números aleatorios
     srand(static_cast<unsigned int>(time(0)));
 
     // Crear y abrir el archivo
@@ -52,10 +51,10 @@ int medianOfThree(vector<int>& vec, int low, int high) { // https://chatgpt.com
 }
 
 int partition(vector<int> &vec, int low, int high) { // https://chatgpt.com
-    // Selecciona el pivote usando la técnica de la mediana de tres
+    // Selecciona el pivote usando la funcion
     int medianIndex = medianOfThree(vec, low, high);
     
-    // Coloca el pivote en el final para utilizar el mismo esquema de partición
+    // Coloca el pivote en el final
     swap(vec[medianIndex], vec[high]);
     int pivot = vec[high];
 
@@ -73,7 +72,7 @@ int partition(vector<int> &vec, int low, int high) { // https://chatgpt.com
 
 void quickSort(vector<int> &vec, int low, int high) { // https://chatgpt.com
     if (low < high) {
-        int pi = partition(vec, low, high);
+        int pi = partition(vec, low, high); // Algoritmo visto en clases
         quickSort(vec, low, pi - 1);
         quickSort(vec, pi + 1, high);
     }

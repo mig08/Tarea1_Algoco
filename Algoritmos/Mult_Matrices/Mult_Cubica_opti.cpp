@@ -11,6 +11,21 @@ using namespace std::chrono;
 using namespace std;
 
 
+// Función para transponer una matriz
+vector<vector<int>> transponerMatriz(const vector<vector<int>>& matriz) { // https://chatgpt.com
+    int filas = matriz.size();
+    int columnas = matriz[0].size();
+    vector<vector<int>> transpuesta(columnas, vector<int>(filas));
+
+    for (int i = 0; i < filas; ++i) {
+        for (int j = 0; j < columnas; ++j) {
+            transpuesta[j][i] = matriz[i][j];
+        }
+    }
+
+    return transpuesta;
+}
+
 // Función para multiplicar matrices usando transposición para mejorar la localidad de los datos
 vector<vector<int>> multiplicarMatrices_Cubica_Optimizada(const vector<vector<int>>& A, const vector<vector<int>>& B) { // https://chatgpt.com 
     int filasA = A.size();

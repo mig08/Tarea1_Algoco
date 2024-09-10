@@ -10,7 +10,7 @@
 using namespace std::chrono;
 using namespace std;
 
-vector<vector<int>> multiplicarMatrices_Cubica(const vector<vector<int>>& A, const vector<vector<int>>& B) {
+vector<vector<int>> multiplicarMatrices_Cubica(const vector<vector<int>>& A, const vector<vector<int>>& B) { // https://chatgpt.com 
     int filasA = A.size();
     int columnasA = A[0].size();
     int filasB = B.size();
@@ -22,7 +22,7 @@ vector<vector<int>> multiplicarMatrices_Cubica(const vector<vector<int>>& A, con
         return {}; // Devuelve una matriz vacía en caso de error
     }
 
-    // Inicializar la matriz resultante con ceros
+    // Crea matriz final
     vector<vector<int>> C(filasA, vector<int>(columnasB, 0));
 
     // Realizar la multiplicación de matrices

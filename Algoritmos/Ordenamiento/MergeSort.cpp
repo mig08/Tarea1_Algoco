@@ -13,7 +13,6 @@ void RandomDataSet(vector<int>& vector, int numElements) {
 
     string Dataset = "Random_dataset.txt";
 
-    // Inicializar la semilla para generar números aleatorios
     srand(static_cast<unsigned int>(time(0)));
 
     // Crear y abrir el archivo
@@ -44,16 +43,16 @@ void merge(vector<int>& vec, int left, int mid, int right) { // https://www.geek
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
-    // Create temporary vectors
+    // Crear vectores temporales
     vector<int> leftVec(n1), rightVec(n2);
 
-    // Copy data to temporary vectors
+    // Copiar elementos a vectores
     for (i = 0; i < n1; i++)
         leftVec[i] = vec[left + i];
     for (j = 0; j < n2; j++)
         rightVec[j] = vec[mid + 1 + j];
 
-    // Merge the temporary vectors back into vec[left..right]
+    // Hacerle merge a los vectores left y right
     i = 0;
     j = 0;
     k = left;
@@ -68,14 +67,14 @@ void merge(vector<int>& vec, int left, int mid, int right) { // https://www.geek
         k++;
     }
 
-    // Copy the remaining elements of leftVec[], if any
+    // Copiar elementos de left, si es que es necesario
     while (i < n1) {
         vec[k] = leftVec[i];
         i++;
         k++;
     }
 
-    // Copy the remaining elements of rightVec[], if any
+    // Copiar elementos de right, si es que es necesario
     while (j < n2) {
         vec[k] = rightVec[j];
         j++;
@@ -83,18 +82,17 @@ void merge(vector<int>& vec, int left, int mid, int right) { // https://www.geek
     }
 }
 
-// The subarray to be sorted is in the index range [left..right]
 void mergeSort(vector<int>& vec, int left, int right) { // https://www.geeksforgeeks.org/cpp-program-for-merge-sort/
     if (left < right) {
       
-        // Calculate the midpoint
+        // Calcular el punto medio
         int mid = left + (right - left) / 2;
 
-        // Sort first and second halves
+        // Sortear mitades
         mergeSort(vec, left, mid);
         mergeSort(vec, mid + 1, right);
 
-        // Merge the sorted halves
+        // Hacerle merge a las mitades
         merge(vec, left, mid, right);
     }
 }
